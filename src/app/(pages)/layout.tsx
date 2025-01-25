@@ -1,12 +1,20 @@
+import { AppSidebar } from "@/components/app-sidebar";
+import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
+
 export default function PagesLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
   return (
-    <div>
-      <h1>Hello Root Layout Root Name</h1>
-      {children}
-    </div>
+    <SidebarProvider>
+      <div className="mr-5">
+        <AppSidebar />
+      </div>
+      <main>
+        <SidebarTrigger />
+        {children}
+      </main>
+    </SidebarProvider>
   );
 }
